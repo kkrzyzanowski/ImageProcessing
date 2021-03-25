@@ -1,0 +1,17 @@
+﻿<Window x:Class="RGBConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RGBConverter" d:DataContext="{d:DesignInstance Type=local:RGBConverterViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Load Image" HorizontalAlignment="Left" Margin="84,349,0,0" VerticalAlignment="Top" Width="196" Height="44" Click="LoadImage"/>
+        <Button Content="Convert Image" HorizontalAlignment="Center" Margin="0,349,0,0" VerticalAlignment="Top" Width="196" Height="44" Click="ConvertImage" />
+        <Button Content="Save Image" HorizontalAlignment="Left" Margin="524,349,0,0" VerticalAlignment="Top" Width="196" Height="44" Click="SaveImage" Name="SaveButton"/>
+        <Image HorizontalAlignment="Left" Height="272" Margin="208,51,0,0" VerticalAlignment="Top" Width="374" Name="imageContainer" Source="{Binding Image}"/>
+        <Label HorizontalAlignment="Left" Margin="583,10,0,0" VerticalAlignment="Top" Width="197" Name="timeLabel" Content="{Binding OperationTime}"/>
+
+    </Grid>
+</Window>
