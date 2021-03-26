@@ -14,21 +14,8 @@ namespace ImageProcessing
 {
     public class ImageProcessing
     {
-        public Bitmap bitmap {get; private set; }
-        byte[] RGBbytes;
-        string locationPath;
-        string savedFileNamed = "converted";
-        public void ReadImage(string locationName)
-        {
-            bitmap = new Bitmap(locationName);
-            locationPath = locationName;
-        }
-
-        public void SaveImage()
-        {
-            ConvertSavedName();
-            bitmap.Save(locationPath);
-        }
+        public Bitmap bitmap {get; set; }       
+        private byte[] RGBbytes;
 
         public void ToMainColors()
         {
@@ -85,7 +72,7 @@ namespace ImageProcessing
         }
         [DllImport("gdi32")]
         static extern int DeleteObject(IntPtr o);
-        public BitmapSource loadBitmap()
+        public BitmapSource LoadBitmap()
         {
             IntPtr ip = bitmap.GetHbitmap();
             BitmapSource bs = null;
@@ -104,7 +91,7 @@ namespace ImageProcessing
             
         }
 
-        private byte[] ChangeColor(int indexColor)
+        public byte[] ChangeColor(int indexColor)
         {
             Color convertedColor;
            
@@ -127,16 +114,12 @@ namespace ImageProcessing
             return rgb;
         }
 
-        private int CheckMaxRGB(byte[] rgb)
+        public int CheckMaxRGB(byte[] rgb)
         {
             int colorValue = rgb[0] > rgb[1] ? 0 : 1;
             colorValue = rgb[colorValue] > rgb[2] ? colorValue : 2;
             return colorValue;
         }
-        private void ConvertSavedName()
-        {
-            var extension = locationPath.Substring(locationPath.Length - 4);
-            locationPath = locationPath.Substring(0, locationPath.Length - 4) + savedFileNamed + extension;
-        }
+
     }
 }

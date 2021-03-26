@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing", "ImagePro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RGBConverter", "RGBConverter\RGBConverter.csproj", "{DC473400-C042-44B4-AA07-95DD92A3049E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{6F0F065E-6C21-40E4-AC30-B7BB21839F46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DC473400-C042-44B4-AA07-95DD92A3049E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC473400-C042-44B4-AA07-95DD92A3049E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC473400-C042-44B4-AA07-95DD92A3049E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F0F065E-6C21-40E4-AC30-B7BB21839F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0F065E-6C21-40E4-AC30-B7BB21839F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0F065E-6C21-40E4-AC30-B7BB21839F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0F065E-6C21-40E4-AC30-B7BB21839F46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,11 +4,15 @@ using System.ComponentModel;
 using System.Text;
 using System.Windows.Media;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using ImageProcessing;
 
 namespace RGBConverter
 {
-    class RGBConverterViewModel : INotifyPropertyChanged
+    public class RGBConverterViewModel : INotifyPropertyChanged
     {
+        private readonly DelegateCommand _convertNameCommand;
+        public ICommand ConvertImageCommand;
         private ImageModel imageModel;
         public RGBConverterViewModel()
         {
@@ -18,6 +22,7 @@ namespace RGBConverter
                 imageSource = null,
                 OperationTime = 0
             };
+            _convertNameCommand = new DelegateCommand();
         }
         public string FileName
         {
@@ -57,6 +62,16 @@ namespace RGBConverter
                 }
             }
         }
+        //private void ConvertImage(object param)
+        //{
+        //    if (ip != null)
+        //    {
+        //        FunctionTimeChecker ftc = new FunctionTimeChecker();
+        //        OperationTime = ftc.GetFunctionTime(ip.ToMainColors);
+        //        Image = ip.LoadBitmap();
+        //        SaveButton.IsEnabled = true;
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChange(string propertyName)

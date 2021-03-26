@@ -23,15 +23,22 @@ namespace RGBConverter
     public partial class MainWindow : Window
     {
         private readonly RGBConverterViewModel _rGBConverterViewModel;
-        string filePath = string.Empty;
         ImageProcessing.ImageProcessing ip;
+        BitmapReaderWriter brw;
+        string filePath = string.Empty;
         public MainWindow()
         {
             InitializeComponent();
             _rGBConverterViewModel = new RGBConverterViewModel();
+            brw = new BitmapReaderWriter();
             DataContext = _rGBConverterViewModel;
         }
 
+        /// <summary>
+        /// Load bitmap from file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoadImage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog imageFileDialog = new OpenFileDialog();
@@ -45,27 +52,35 @@ namespace RGBConverter
             {
                 filePath = imageFileDialog.FileName;
                 ip = new ImageProcessing.ImageProcessing();
-                ip.ReadImage(filePath);
-                _rGBConverterViewModel.Image = ip.loadBitmap();
+                ip.bitmap = brw.ReadImage(filePath);
+                _rGBConverterViewModel.Image = ip.LoadBitmap();
             }
         }
-
+        /// <summary>
+        /// Convert image button event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConvertImage(object sender, RoutedEventArgs e)
         {
             if(ip != null)
             {
                 FunctionTimeChecker ftc = new FunctionTimeChecker();
                 _rGBConverterViewModel.OperationTime = ftc.GetFunctionTime(ip.ToMainColors);
-                _rGBConverterViewModel.Image = ip.loadBitmap();
+                _rGBConverterViewModel.Image = ip.LoadBitmap();
                 SaveButton.IsEnabled = true;
             }
         }
-
+        /// <summary>
+        /// Save Image Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveImage(object sender, RoutedEventArgs e)
         {
             if(SaveButton.IsEnabled)
             {
-                ip.SaveImage();
+                brw.SaveImage(ip.bitmap);
                 SaveButton.IsEnabled = false;
             }
         }
