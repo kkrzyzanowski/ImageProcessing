@@ -8,7 +8,12 @@ namespace RGBConverter
     class DelegateCommand : ICommand
     {
         private readonly Action<object> _executeAction;
-        public event EventHandler CanExecuteChanged;
+
+        public DelegateCommand(Action<object> action)
+        {
+            _executeAction = action;
+        }
+
 
         public bool CanExecute(object parameter)
         {
@@ -19,5 +24,6 @@ namespace RGBConverter
         {
             _executeAction(parameter);
         }
+        public event EventHandler CanExecuteChanged;
     }
 }

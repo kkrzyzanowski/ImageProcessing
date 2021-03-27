@@ -60,6 +60,8 @@ namespace ImageProcessing
             byte[] bytes = RGBbytes;
             for (int i = 0; i < size; i += 3)
             {
+                if (i + 2 >= size)
+                    break;
                 byte[] RGB = { bytes[i], bytes[i + 1], bytes[i + 2] };
                 //0 - Red, 1 - Green, 2 - Blue
                 int indexColor = CheckMaxRGB(RGB);

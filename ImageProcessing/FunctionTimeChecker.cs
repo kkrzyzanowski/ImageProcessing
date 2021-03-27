@@ -8,13 +8,21 @@ namespace ImageProcessing
 {
     public class FunctionTimeChecker
     {
-        public long GetFunctionTime(Action action)
+        public long ElapsedMs { get; private set; } = 0;
+        public void CheckFunctionTime(Action action)
         {
+            ElapsedMs = 0;
             var watch = System.Diagnostics.Stopwatch.StartNew();
             action();
             watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            return elapsedMs;
+            ElapsedMs = watch.ElapsedMilliseconds;
+        }
+        public async void GetFunctionTimeAsync(Func<Task> action)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            await action();
+            watch.Stop();
+            ElapsedMs = watch.ElapsedMilliseconds;
         }
     }
 }

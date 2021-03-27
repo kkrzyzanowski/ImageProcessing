@@ -1,13 +1,11 @@
 using NUnit.Framework;
-using ImageProcessing;
-using RGBConverter;
 using System.Windows.Media.Imaging;
 using System;
 
 namespace TestProject1
 {
     [TestFixture]
-    public class UnitTest1
+    public class ImageProcessingTest
     {
         [Test]
         public void ChangeColorTest()

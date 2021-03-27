@@ -10,12 +10,17 @@ namespace ImageProcessing
     public class BitmapReaderWriter
     {
         private PathModifier pm;
-
-        public BitmapReaderWriter()
+        private static BitmapReaderWriter _bmwInstance;
+        public static BitmapReaderWriter CreateBMWInstance() 
+        {
+            if (_bmwInstance == null) 
+                _bmwInstance = new BitmapReaderWriter(); 
+            return _bmwInstance; 
+        }  
+        private BitmapReaderWriter()
         {
             pm = new PathModifier();
         }
-
         public Bitmap ReadImage(string path)
         {
             pm.LocationPath = path;
