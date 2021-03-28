@@ -32,5 +32,10 @@ namespace ImageProcessing
             pm.ConvertSavedName();
             bmp.Save(pm.LocationPath);
         }
+        
+        public string GetFileImageName()
+        {
+            return pm.GetImageFileName();
+        }
     }
 }

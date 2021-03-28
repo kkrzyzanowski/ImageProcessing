@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RGBConverter" d:DataContext="{d:DesignInstance Type=local:RGBConverterViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,2,0,5" Height="427">
-        <Button Content="Load Image" Command="{Binding Path=LoadImageCommand}" HorizontalAlignment="Left" Margin="68,349,0,0" VerticalAlignment="Top" Width="140" Height="44" />
-        <Button Content="Convert Image" Command="{Binding Path=ConvertImageCommand}" HorizontalAlignment="Left" Margin="244,349,0,0" VerticalAlignment="Top" Width="140" Height="44"  />
-        <Button Content="Save Image" IsEnabled="{Binding CanSave}" HorizontalAlignment="Left" Margin="592,349,0,0" VerticalAlignment="Top" Width="140" Height="44" Click="SaveImage" Name="SaveButton"/>
-        <Image HorizontalAlignment="Left" Height="318" Margin="208,15,0,0" VerticalAlignment="Top" Width="374" Name="imageContainer" Source="{Binding Image}"/>
-        <Label HorizontalAlignment="Left" Margin="583,10,0,0" VerticalAlignment="Top" Width="197" Name="timeLabel" Content="{Binding OperationTimeText}"/>
-        <Button Content="Convert Image Async" Command="{Binding ConvertImageCommand}" HorizontalAlignment="Left" Margin="420,349,0,0" VerticalAlignment="Top" Width="140" Height="44"  />
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="0,2,0,5" Height="600" Width="800">
+        <Button Content="Load Image" Command="{Binding Path=LoadImageCommand}" HorizontalAlignment="Left" Margin="61,447,0,0" VerticalAlignment="Top" Width="141" Height="44" Click="LoadImageClick" />
+        <Button Content="Convert Image" Command="{Binding Path=ConvertImageCommand}" HorizontalAlignment="Left" Margin="231,447,0,0" VerticalAlignment="Top" Width="140" Height="44" Name="ConvertImage"  />
+        <Button Content="Convert Image Async" Command="{Binding ConvertImageCommand}" HorizontalAlignment="Left" Margin="400,447,0,0" VerticalAlignment="Top" Width="140" Height="44" Name="ConvertAsyncImage" />
+        <Button Content="Save Image" IsEnabled="{Binding CanSave}" HorizontalAlignment="Left" Margin="624,496,0,60" Width="140" Click="SaveImage" Name="SaveButton"/>
+        <Image HorizontalAlignment="Left" Stretch="None" Height="404" Margin="10,10,0,0" VerticalAlignment="Top" Width="777" Name="imageContainer" Source="{Binding Image}" RenderTransformOrigin="0.486,0.511"/>
+        <Label HorizontalAlignment="Right" Margin="0,469,36,0" VerticalAlignment="Top" Width="196" Name="timeLabel" Content="{Binding OperationTimeText}" RenderTransformOrigin="0.505,0.602"/>
+        <Label Content="{Binding FileName}" HorizontalAlignment="Center" Margin="0,417,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.616" Height="25" FontSize="10" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

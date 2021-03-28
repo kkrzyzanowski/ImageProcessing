@@ -31,6 +31,8 @@ namespace RGBConverter
             InitializeComponent();
             _rGBConverterViewModel = new RGBConverterViewModel();
             DataContext = _rGBConverterViewModel;
+            ConvertImage.IsEnabled = false;
+            ConvertAsyncImage.IsEnabled = false;
         }
         private void SaveImage(object sender, RoutedEventArgs e)
         {
@@ -39,6 +41,12 @@ namespace RGBConverter
                 brw.SaveImage(_rGBConverterViewModel.ip.bitmap);
                 _rGBConverterViewModel.CanSave = false;
             }
+        }
+
+        private void LoadImageClick(object sender, RoutedEventArgs e)
+        {
+            ConvertImage.IsEnabled = true;
+            ConvertAsyncImage.IsEnabled = true;
         }
     }
 }

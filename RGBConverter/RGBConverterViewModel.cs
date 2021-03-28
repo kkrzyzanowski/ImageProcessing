@@ -102,7 +102,7 @@ namespace RGBConverter
         private void LoadImage(object param)
         {
             Microsoft.Win32.OpenFileDialog imageFileDialog = new OpenFileDialog();
-            imageFileDialog.Filter = "JPEG files (*.jpg, *.jpeg)|*.jpg, *.jpeg|PNG files (*.png)|*.png|" +
+            imageFileDialog.Filter = "JPEG files (*.jpg, *.jpeg)|*.jpg; *.jpeg|PNG files (*.png)|*.png|" +
                 "BMP files (*.bmp)|*.bmp";
             imageFileDialog.FilterIndex = 1;
             imageFileDialog.RestoreDirectory = true;
@@ -114,6 +114,7 @@ namespace RGBConverter
                 ip = new ImageProcessing.ImageProcessing();
                 ip.bitmap = brw.ReadImage(FileName);
                 Image = ip.LoadBitmap();
+                FileName = brw.GetFileImageName();
             }
         }
         private void ConvertImage(object param)

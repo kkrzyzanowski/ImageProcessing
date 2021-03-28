@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace ImageProcessing
         {
             var extension = LocationPath.Substring(LocationPath.Length - 4);
             LocationPath = LocationPath.Substring(0, LocationPath.Length - 4) + savedFileNamed + extension;
+        }
+
+        public string GetImageFileName()
+        {
+            return Path.GetFileName(LocationPath);
         }
     }
 }
